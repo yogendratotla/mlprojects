@@ -11,7 +11,6 @@ from dataclasses import dataclass
 from src.exception import CustomException
 from src.logger import logging
 from src.utils import save_object
-import dill
 
 @dataclass
 class DataTransformationConfig:
@@ -35,7 +34,7 @@ class DataTransformation:
             num_pipeline = Pipeline(
                 steps=[
                     ("imputer", SimpleImputer(strategy="median")),
-                    ("scaler", StandardScaler(with_mean=False))
+                    ("scaler", StandardScaler())
                 ]
             )
 
